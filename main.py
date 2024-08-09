@@ -1,0 +1,15 @@
+import requests
+from bs4 import BeautifulSoup
+
+# Fetch the HTML content
+url = "https://www.google.com/search?q=replit&sca_esv=a36414378d11ac08&source=hp&ei=P4GzZsnUAZ6Bvr0PxeaQgAw&oq=&gs_lp=EhFtb2JpbGUtZ3dzLXdpei1ocCIAKgIIATICECkyAhApMgIQKTICECkyBRApGKABMgIQKTICECkyEBApGIAEGLEDGEMYgwEYigUyAhApMgIQKTIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEC4YAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPATIQEAAYAxjlAhjqAhiMAxiPAUjwC1AAWABwAXgAkAEAmAEAoAEAqgEAuAEByAEAmAIBoAJVqAIZmANVkgcBMaAHAA&sclient=mobile-gws-wiz-hp&ebo=0"
+response = requests.get(url)
+html_content = response.content
+
+# Parse the HTML content
+soup = BeautifulSoup(html_content, 'html.parser')
+
+# Extract text
+text = soup.get_text()
+
+print(text)
